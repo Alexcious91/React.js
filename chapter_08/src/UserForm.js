@@ -37,9 +37,7 @@ class UserForm extends Component {
                         <ErrorMessage name='email' component="div" />
                      </span>
                      <Field type="password" name="password" />
-                     <span style={{color: 'red', fontWeight: 'bold' }}>
-                        <ErrorMessage name='password' component="div" />
-                     </span>
+                     <ErrorMessage name='password' component="div" />
 
                      <button type='submit' disabled={isSubmitting}>Submit</button>
                   </Form>

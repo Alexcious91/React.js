@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
-import { Media } from 'react-bootstrap';
+import { Media, Nav } from 'react-bootstrap';
 
 class Github extends Component {
    constructor() {
@@ -13,7 +13,7 @@ class Github extends Component {
    }
 
    componentDidMount() {
-      this.getGithubData('alexcious');
+      this.getGithubData('greg');
    }
 
    getGithubData(_searchTerm) {
@@ -22,7 +22,7 @@ class Github extends Component {
             console.log(res.data.items);
             this.setState({ 
                isLoading : false,
-               data: res.data.items
+               data: res.data.items // JSON format
             })
          });
    }
@@ -30,15 +30,15 @@ class Github extends Component {
    render() {
       const listUsers = this.state.data.map(user => 
          <Media key={user.id}>
-            <a href={user.html_url}>
+            <Nav.Link href={`/github/user/${user.login}/${user.id}`}>
                <img
                   width={64}
                   height={64}
-                  className='mr-3'
+                  className="mr-3"
                   src={user.avatar_url}
-                  alt='Generic placeholder'
+                  alt="Generic placeholder"
                />
-            </a>
+            </Nav.Link>
             
             <Media.Body>
                <h5>Login : {user.login}</h5>
@@ -48,13 +48,13 @@ class Github extends Component {
       )
 
       return (
-         <>
+         <React.Fragment>
             <h3>Github Users Results</h3>
             { this.state.isLoading &&
                <ReactLoading type='spinningBubbles' color='#444'/>
             }
             {listUsers}
-         </>
+         </React.Fragment>
       )
    }
 }

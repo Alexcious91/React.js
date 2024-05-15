@@ -3,7 +3,6 @@ import Product from "./Product";
 
 class Products extends Component {
 	products;
-
 	constructor(props) {
 		super(props);
 		this.products = this.getProducts()
@@ -41,16 +40,19 @@ class Products extends Component {
 	
 	render() {
 		// Map over the products array/ create comp for each product
-		const listProducts = this.products.map(product =>
-			<Product key={product.productName} data={product} />
+		const listProducts = this.products.map((product) =>
+			<Product key={product.productName} data={product}/>
 		)
 
+		console.log(listProducts.length)
 		// render the list of products
-		console.log(listProducts)
-
 		return (
 			<div>
-				{listProducts.length > 0 ? ( <ul>{listProducts}</ul> ) : ( <ul>No products to display</ul> )}
+				{listProducts > 0 ? (
+					<ul>{listProducts}</ul>
+				) : (
+					<ul>No products to display</ul>
+				)}
 			</div>
 		);
 	}
