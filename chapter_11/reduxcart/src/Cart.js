@@ -8,7 +8,7 @@ class Cart extends Component {
          <div className='container'>
             <AddProduct addProduct={this.props.onAddProduct}/>
 
-            <Table>
+            <Table bordered>
                <thead>
                   <tr>
                      <th>Product Name</th>
