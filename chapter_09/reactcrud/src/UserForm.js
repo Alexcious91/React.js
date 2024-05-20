@@ -27,10 +27,13 @@ class UserForm extends Component {
       if (this.id) {
          firebase.database().ref("/" + this.id)
             .on("value", snapshot => {
-               this.setState({
-                  username: snapshot.val().username,
-                  email: snapshot.val().email
-               })
+               const data = snapshot.val();
+               if (data) {
+                  this.setState({
+                     username: data.username,
+                     email: data.email
+                  })
+               }
             });
       }
    }
@@ -73,7 +76,7 @@ class UserForm extends Component {
                         username: values.username,
                         email: values.email
                      }).then(() => this.props.history.push("/"));
-                     
+
                      setSubmitting(false)
                   }, 400);
                }}
