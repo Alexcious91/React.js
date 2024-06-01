@@ -1,13 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import TableData from './TableData'
-import { Table } from 'react-bootstrap'
+import { Table, Container } from 'react-bootstrap'
 
 function DynamicTable() {
-
-   /**
-    * get the object properties
-    * 
-   */
    const column = Object.keys(TableData[0])
    console.log(column);
 
@@ -34,15 +29,17 @@ function DynamicTable() {
    }
 
    return (
-      <Table>
-         <thead>
-            <tr>{tableHeadData()}</tr>
-         </thead>
+      <Container className='mt-3'>
+         <Table>
+            <thead>
+               <tr>{tableHeadData()}</tr>
+            </thead>
 
-         <tbody>
-            {tableRowData()}
-         </tbody>
-      </Table>
+            <tbody>
+               {tableRowData()}
+            </tbody>
+         </Table>
+      </Container>
    )
 }
 
