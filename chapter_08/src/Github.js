@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import { Switch } from 'react'
 import ReactLoading from 'react-loading';
 import { Media, Form, Button } from 'react-bootstrap';
 

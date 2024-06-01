@@ -11,6 +11,7 @@ class App extends Component {
 				<h1>My react app.</h1>
 
 				<Button variant='danger' disabled={!isValid}>Default</Button>
+				
 				<Rating rating={1} />
 				<Rating rating={2} />
 				<Rating rating={3} />

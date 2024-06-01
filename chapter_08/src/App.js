@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Github from './Github';
-import GithubUser from './GithubUser'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { Nav, Navbar } from 'react-bootstrap';
 
